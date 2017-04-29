@@ -71,6 +71,9 @@
     <Content Include="imagenes\1.jpg" />
     <Content Include="imagenes\2.jpg" />
     <Content Include="imagenes\3.png" />
+    <Content Include="imagenes\Atomic-Podcast.png" />
+    <Content Include="imagenes\Atomicprinter.png" />
+    <Content Include="imagenes\Braile-dinamico.png" />
     <Content Include="imagenes\logo.png" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />

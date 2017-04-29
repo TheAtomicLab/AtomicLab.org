@@ -88,8 +88,9 @@ body {
 .carousel-inner > .item > img {
   top: 0;
   left: 0;
+  height: 500px;
   min-width: 100%;
-  height: all;
+  
 }
 
 
