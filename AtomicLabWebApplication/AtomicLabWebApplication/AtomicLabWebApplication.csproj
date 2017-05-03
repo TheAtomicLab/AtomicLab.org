@@ -68,6 +68,8 @@
   <ItemGroup>
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\carousel.css" />
+    <Content Include="css\contactUs.css" />
+    <Content Include="home\contactUs.js" />
     <Content Include="imagenes\1.jpg" />
     <Content Include="imagenes\2.jpg" />
     <Content Include="imagenes\3.png" />

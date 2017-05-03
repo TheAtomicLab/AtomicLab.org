@@ -1,9 +1,6 @@
 ﻿<!-- MENÚ A MEJORAR, PARTE DE ATOMIC Y PROYECTOS CAMBIADOS. -->
-
 <!-- SE PUEDE EDITAR COMPLETAMENTE, ES SOLAMENTE UN PROTOTIPO -->
-
 <!-- SPONSORS PARA EDITAR LUEGO, LAS IMAGENES DEBEN ESTAR EN OTRA FORMA, Y FALTAN MÁS -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +11,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
     <title>Atomic Lab</title>
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -22,33 +18,36 @@
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/contactUs.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="contactUs.js"></script>
 </head>
 <!-- NAVBAR
 ================================================== -->
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<!-- Fixed navbar -->
+    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="../imagenes/logo.png" width="80" height=""></a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="../imagenes/logo.png" width="80" height=""></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" class="scroll hvr-underline-from-center"><a href="index.html">Inicio</a></li>
+                    <li><a class="scroll hvr-underline-from-center" href="#about">¿Quienes Somos?</a></li>
+                    <li><a class="scroll hvr-underline-from-center" href="#service">Proyectos</a></li>
+                    <li><a class="scroll hvr-underline-from-center" href="#team">Contacto</a></li>
+                    <li><a class="scroll hvr-underline-from-center" href="#" role="button">¡Pedir una Protesis!</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active" class="scroll hvr-underline-from-center"><a href="index.html">Inicio</a></li>
-                <li><a class="scroll hvr-underline-from-center" href="#about">¿Quienes Somos?</a></li>
-                <li><a class="scroll hvr-underline-from-center" href="#service">Proyectos</a></li>
-                <li><a class="scroll hvr-underline-from-center" href="#team">Contacto</a></li>
-                <li><a class="scroll hvr-underline-from-center" href="#" role="button">¡Pedir una Protesis!</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
     <!-- /Fixed navbar -->
     <!-- Carousel
@@ -123,95 +122,123 @@
             <span class="sr-only">Next</span>
         </a>
     </div><!-- /.carousel -->
-
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
     <div class="container marketing">
+        <div class="sponsors">
+        </div>
+        <div class="sponsors">
+            <img src="../imagenes/sponsors/microsoft1.png" width="180"><img src="../imagenes/sponsors/sheraton1.png" width="140"><img src="../imagenes/sponsors/movistar1.png" width="100"><img src="../imagenes/sponsors/innovadores1.png" width="180">
 
-    <div class="sponsors">
+        </div>
+        <br><br><br>
+        <!-- Three columns of text below the carousel -->
+        <center>
+            <div class="borde">
+                <div>
+                    <h2>ATOMIC LAB</h2>
+                    <hr>
+                    <center><img class="img-responsive" src="../imagenes/atomic.png" width="80" height="" alt="Generic placeholder image"></center>
+                    <hr>
+                    <p><h3>Somos impulsados por una necesidad incesante de superar retos, cambiarle la vida a la gente, generar impacto, inventar un mundo inventor, en Atomic creemos que tenemos las "cicatrices" para probarlo. Trabajamos en distintas áreas, como electrónica, ingeniería, robótica, programación, ciencias exactas, marketing, impresión 3D, realidad virtual y aumentada, entretenimiento y muchas otras tecnologías disruptivas emergentes.</h3></p>
+                    <hr>
+                    <p><a class="btn btn-default" href="quienes-somos.html" role="button">¡Conocenos Más!</a></p>
+                </div>
+            </div>
+        </center>
+        <br><br>
+        <center>
+            <div class="borde">
+                <div>
+                    <h2>PROYECTOS</h2>
+                    <hr>
+                    <p><h3>Unimos unos &aacute;tomos de forma creativa para ayudar al mundo con decenas de inventos que pueden revolucionar la historia. Les hacemos muestra de nuestros dos principales proyectos, ¡pero puede visitar nuestra sección "Proyectos" para ver absolutamente todos nuestros inventos!</h3></p>
+                    <hr>
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h1 class="featurette-heading"><span class="text-muted">LIMBS</span></h1>
+                            <p class="lead">Es el proyecto de Atomic Lab que tiene por objetivo convertir a todos los chicos en superhéroes, imprimiendo y entregando de forma gratuita, prótesis de manos y brazos en 3D a todo aquel que las necesite.</p>
+                            <p><a href="limbs.html">¡Ir a Limbs!</a></p>
+                        </div>
+                        <div class="col-md-5">
+                            <!--<div class="col-md-5 col-md-pull-7">-->
+                            <img src="../imagenes/limbs.png" width="260" height="260" alt="Generic placeholder image">
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row featurette">
+                        <div class="col-md-7 col-md-push-5">
+                            <h1 class="featurette-heading"> <span class="text-muted">UNBLINDER</span></h1>
+                            <p class="lead">Aplicación especialmente desarrollada para no videntes, solamente sacando una foto te avisará mediante voz qué es lo que estás viendo, podrás diferenciar desde una manzana verde contra una roja, como así también si un frasco dice “Shampoo” o “Acondicionador”.</p>
+                            <p><a href="limbs.html">¡Ir a Unblinder!</a></p>
+                        </div>
+                        <div class="col-md-5 col-md-pull-7">
+                            <img src="../imagenes/unblinder.png" width="260" height="260" alt="Generic placeholder image">
+                        </div>
+                    </div>
+                    <hr>
+                    <p><h3>¡Y muchos proyectos más que quisieramos mostrarle!. (Click en el botón)</h3></p>
+                    <hr>
+                    <p><a class="btn btn-default" href="#" role="button">¡Ver todos los proyectos!</a></p>
+                </div>
+            </div>
+        </center>
+
+        <center>
+            <div class="borde">
+                <div>
+                    <div class="col-md-7">
+
+                        <form role="form">
+
+                            <br style="clear:both">
+                            <h2 style="margin-bottom: 25px; text-align: center;">CONTACTANOS!</h2>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Asunto" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                                <span class="help-block"><p id="characterLeft" class="help-block ">Has llegado al limite</p></span>
+                            </div>
+
+                            <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Enviar</button>
+
+                        </form>
+                    </div>
+                    <div class="col-md-5">
+                        <hr>
+                        <h2>NUESTRAS REDES</h2>
+                        <ul class="list-inline banner-social-buttons">
+                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
+                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
+                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-youtube-play"> <span class="network-name">Youtube</span></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </center>
 
     </div>
-     <div class="sponsors">
-            <img src="../imagenes/sponsors/microsoft1.png" width="180"><img src="../imagenes/sponsors/sheraton1.png" width="140"><img src="../imagenes/sponsors/movistar1.png" width="100"><img src="../imagenes/sponsors/innovadores1.png" width="180">
-                
-            </div>
-        <br><br><br>
 
-        <!-- Three columns of text below the carousel -->
-        <center><div class="borde">
-            <div>
-                <h2>ATOMIC LAB</h2>
-                <hr>
-                <center><img class="img-responsive" src="../imagenes/atomic.png" width="80" height="" alt="Generic placeholder image"></center>
-                <hr>
-                <p><h3>Somos impulsados por una necesidad incesante de superar retos, cambiarle la vida a la gente, generar impacto, inventar un mundo inventor, en Atomic creemos que tenemos las "cicatrices" para probarlo. Trabajamos en distintas áreas, como electrónica, ingeniería, robótica, programación, ciencias exactas, marketing, impresión 3D, realidad virtual y aumentada, entretenimiento y muchas otras tecnologías disruptivas emergentes.</h3></p>
-                <hr>
-                <p><a class="btn btn-default" href="quienes-somos.html" role="button">¡Conocenos Más!</a></p>
-            </div>
-        </div></center>
-        <br><br>
-        <center><div class="borde">
-            <div>
-                <h2>PROYECTOS</h2>
-                <hr>
-                <p><h3>Unimos unos &aacute;tomos de forma creativa para ayudar al mundo con decenas de inventos que pueden revolucionar la historia. Les hacemos muestra de nuestros dos principales proyectos, ¡pero puede visitar nuestra sección "Proyectos" para ver absolutamente todos nuestros inventos!</h3></p>
-                <hr>
-                <div class="row featurette">
 
-            <div class="col-md-7">
-                <h1 class="featurette-heading"><span class="text-muted">LIMBS</span></h1>
-                <p class="lead">Es el proyecto de Atomic Lab que tiene por objetivo convertir a todos los chicos en superhéroes, imprimiendo y entregando de forma gratuita, prótesis de manos y brazos en 3D a todo aquel que las necesite.</p>
-                <p><a href="limbs.html">¡Ir a Limbs!</a></p>
-            </div>
-            <div class="col-md-5">
-                <!--<div class="col-md-5 col-md-pull-7">-->
-                    <img src="../imagenes/limbs.png" width="260" height="260" alt="Generic placeholder image">
-                <!--</div>-->
-            </div>
-        </div>
-        <hr>
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5">
-                <h1 class="featurette-heading"> <span class="text-muted">UNBLINDER</span></h1>
-                <p class="lead">Aplicación especialmente desarrollada para no videntes, solamente sacando una foto te avisará mediante voz qué es lo que estás viendo, podrás diferenciar desde una manzana verde contra una roja, como así también si un frasco dice “Shampoo” o “Acondicionador”.</p>
-                <p><a href="limbs.html">¡Ir a Unblinder!</a></p>
-            </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img src="../imagenes/unblinder.png" width="260" height="260" alt="Generic placeholder image">
-            </div>
-        </div>
-        <hr>
-        <p><h3>¡Y muchos proyectos más que quisieramos mostrarle!. (Click en el botón)</h3></p>
-                <hr>
-                <p><a class="btn btn-default" href="#" role="button">¡Ver todos los proyectos!</a></p>
-            </div>
-        </div></center>
-
-        </div>
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-        
-
-        <!--<hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-            </div>
-        </div>-->
-        <hr class="featurette-divider">
-        <!-- /END THE FEATURETTES -->
-        <!-- FOOTER -->
-        <footer>
-            <p class="pull-right"><a href="#">Volver al inicio</a></p>
-            <p>&copy;2015 Atomic Lab, todos los derechos reservados. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Volver al inicio</a></p>
+        <p>&copy;2015 Atomic Lab, todos los derechos reservados. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
