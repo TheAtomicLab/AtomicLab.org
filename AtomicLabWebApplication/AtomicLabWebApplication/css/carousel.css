@@ -1,10 +1,11 @@
-﻿/* GLOBAL STYLES
+/* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: #f4f4f4;
 }
 
 /*Menú editado por Guille*/
@@ -21,8 +22,8 @@ body {
     color: #FFFEFE;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding: 24px 13px;
-    font-weight: 100;
+    padding: 20px 13px;
+    font-size: 0.8em; 
 }
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
     color: #fff;
@@ -38,33 +39,6 @@ body {
     color: #4772B2;
     background-color: #fff;
 }
-/*Fin menú editado por Guille*/
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
-
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -94,16 +68,25 @@ body {
 }
 
 
+.borde{
+   border-color: #d4d4d4;
+   background-color: #fff;
+   border-width: 2px;
+   border-style: solid;
+}
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   text-align: center;
 }
 .marketing h2 {
-  font-weight: normal;
+  font-family: "TESLA";
+  font-size: 4em;
+color:#4772B2;   /* Color del texto */
 }
 .marketing .col-lg-4 p {
   margin-right: 10px;
@@ -129,3 +112,24 @@ body {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid black;
+  border-radius: 4px;
+}
