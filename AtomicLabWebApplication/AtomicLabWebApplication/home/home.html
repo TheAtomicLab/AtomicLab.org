@@ -1,6 +1,4 @@
-﻿<!-- MENÚ A MEJORAR, PARTE DE ATOMIC Y PROYECTOS CAMBIADOS. -->
-<!-- SE PUEDE EDITAR COMPLETAMENTE, ES SOLAMENTE UN PROTOTIPO -->
-<!-- SPONSORS PARA EDITAR LUEGO, LAS IMAGENES DEBEN ESTAR EN OTRA FORMA, Y FALTAN MÁS -->
+﻿<!-- SPONSORS PARA EDITAR LUEGO, LAS IMAGENES DEBEN ESTAR EN OTRA FORMA, Y FALTAN MÁS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +18,11 @@
     <link href="../css/carousel.css" rel="stylesheet">
     <link href="../css/contactUs.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="home.js"></script>
-    <script type="text/javascript" src="contactUs.js"></script>
+
 </head>
 <!-- NAVBAR
 ================================================== -->
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -41,10 +39,10 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active" class="scroll hvr-underline-from-center"><a href="index.html">Inicio</a></li>
-                    <li><a class="scroll hvr-underline-from-center" href="#about">¿Quienes Somos?</a></li>
-                    <li><a class="scroll hvr-underline-from-center" href="#service">Proyectos</a></li>
-                    <li><a class="scroll hvr-underline-from-center" href="#team">Contacto</a></li>
-                    <li><a class="scroll hvr-underline-from-center" href="#" role="button">¡Pedir una Protesis!</a></li>
+                    <li><a class="scroll hvr-underline-from-center" onclick="scrollTo('whoWeAreContainer')">¿Quienes Somos?</a></li>
+                    <li><a class="scroll hvr-underline-from-center" onclick="scrollTo('proyectsContainer')">Proyectos</a></li>
+                    <li><a class="scroll hvr-underline-from-center" onclick="scrollTo('contactUsContainer')">Contacto</a></li>
+                    <li><a class="scroll hvr-underline-from-center" href="">¡Pedir una Protesis!</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -68,7 +66,7 @@
                     <div class="carousel-caption">
                         <h1>Atomic Lab</h1>
                         <p>Somos átomos libres, si pudiéramos modificarnos, lo haríamos, pero crear los inventos que cambien la vida a millones de personas será suficiente.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">¿Quienes Somos?</a></p>
+                        <p><a class="btn btn-lg btn-primary" onclick="scrollTo('whoWeAreContainer')" role="button">¿Quienes Somos?</a></p>
                     </div>
                 </div>
             </div>
@@ -88,7 +86,7 @@
                     <div class="carousel-caption">
                         <h1>¿Que hacemos?</h1>
                         <p>En Atomic Lab trabajamos en equipo para crear soluciones que cambien la vida a millones de personas en el mundo mediante las últimas tecnologías.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Proyectos</a></p>
+                        <p><a class="btn btn-lg btn-primary" onclick="scrollTo('proyectsContainer')" role="button">Proyectos</a></p>
                     </div>
                 </div>
             </div>
@@ -137,7 +135,7 @@
         <center>
             <div class="borde">
                 <div>
-                    <h1>ATOMIC LAB</h1>
+                    <h1>Atomic Lab</h1>
                     <hr>
                     <center><img class="img-responsive" src="../imagenes/atomic.png" width="80" height="" alt="Generic placeholder image"></center>
                     <hr>
@@ -150,7 +148,7 @@
 
             <br><br>
 
-            <div class="borde">
+            <div class="borde" id="proyectsContainer">
                 <div>
                     <h1>Proyectos</h1>
                     <hr>
@@ -189,7 +187,7 @@
 
             <br><br>
 
-            <div class="borde">
+            <div class="borde" id="contactUsContainer">
 
                 <div class="row">
                     <div class="col-md-6">
@@ -235,7 +233,7 @@
         </center>
         <br><br>
 
-        <div class="borde">
+        <div class="borde" id="whoWeAreContainer">
             <div class="row">
                 <div class="col-lg-12">
                     <h1><center>¿Quines somos?</center></h1>
@@ -246,10 +244,10 @@
                 <div class="col-lg-12">
                     <h1 class="featurette-heading"><span class="text-muted">Gino Tubaro</span></h1>
                     <ul>
-                        <li><p><a href="">https://www.linkedin.com/in/gino-tubaro-90b04122/</a></p></li>
-                        <li><p><a href="">http://twitter.com/ginotubaro</a></p></li>
-                        <li><p><a href="">https://www.facebook.com/ginotubaro</a></p></li>
-                        <li><p><a href="">http://ginotubaro.com</a></p></li>
+                        <li><p><a href="https://www.linkedin.com/in/gino-tubaro-90b04122/">https://www.linkedin.com/in/gino-tubaro-90b04122/</a></p></li>
+                        <li><p><a href="http://twitter.com/ginotubaro">http://twitter.com/ginotubaro</a></p></li>
+                        <li><p><a href="https://www.facebook.com/ginotubaro">https://www.facebook.com/ginotubaro</a></p></li>
+                        <li><p><a href="http://ginotubaro.com">http://ginotubaro.com</a></p></li>
                     </ul>
                 </div>
 
@@ -259,10 +257,10 @@
                 <div class="col-lg-12">
                     <h1 class="featurette-heading"><span class="text-muted">Gustavo Agustín Pérez</span></h1>
                     <ul>
-                        <li><p><a href="">https://www.linkedin.com/in/gaperez/</a></p></li>
-                        <li><p><a href="">https://twitter.com/gusagusperez</a></p></li>
-                        <li><p><a href="">https://www.facebook.com/gustavoaperez</a></p></li>
-                        <li><p><a href="">http://gaperez.com.ar</a></p></li>
+                        <li><p><a href="https://www.linkedin.com/in/gaperez/">https://www.linkedin.com/in/gaperez/</a></p></li>
+                        <li><p><a href="https://twitter.com/gusagusperez">https://twitter.com/gusagusperez</a></p></li>
+                        <li><p><a href="https://www.facebook.com/gustavoaperez">https://www.facebook.com/gustavoaperez</a></p></li>
+                        <li><p><a href="http://gaperez.com.ar">http://gaperez.com.ar</a></p></li>
                     </ul>
                 </div>
             </div>
@@ -271,10 +269,10 @@
                 <div class="col-lg-12">
                     <h1 class="featurette-heading"><span class="text-muted">Alejandro Banzas</span></h1>
                     <ul>
-                        <li><p><a href="">https://twitter.com/AleBanzas</a></p></li>
-                        <li><p><a href="">https://www.linkedin.com/in/alebanzas/</a></p></li>
-                        <li><p><a href="">https://www.facebook.com/alebanzas</a></p></li>
-                        <li><p><a href="">http://alebanzas.com.ar</a></p></li>
+                        <li><p><a href="https://twitter.com/AleBanzas">https://twitter.com/AleBanzas</a></p></li>
+                        <li><p><a href="https://www.linkedin.com/in/alebanzas/">https://www.linkedin.com/in/alebanzas/</a></p></li>
+                        <li><p><a href="https://www.facebook.com/alebanzas">https://www.facebook.com/alebanzas</a></p></li>
+                        <li><p><a href="http://alebanzas.com.ar">http://alebanzas.com.ar</a></p></li>
                     </ul>
                 </div>
             </div>
@@ -283,10 +281,10 @@
                 <div class="col-lg-12">
                     <h1 class="featurette-heading"><span class="text-muted">Aldano Pelusso</span></h1>
                     <ul>
-                        <li><p><a href="">http://linkedin.com/in/aldanois</a></p></li>
-                        <li><p><a href="">http://twitter.com/aldanois</a></p></li>
-                        <li><p><a href="">http://facebook.com/aldanois</a></p></li>
-                        <li><p><a href="">http://aldano.is</a></p></li>
+                        <li><p><a href="http://linkedin.com/in/aldanois">http://linkedin.com/in/aldanois</a></p></li>
+                        <li><p><a href="http://twitter.com/aldanois">http://twitter.com/aldanois</a></p></li>
+                        <li><p><a href="http://facebook.com/aldanois">http://facebook.com/aldanois</a></p></li>
+                        <li><p><a href="http://aldano.is">http://aldano.is</a></p></li>
                     </ul>
                 </div>
             </div>
@@ -299,15 +297,15 @@
         </div>
 
         <br><br>
-
-
+       
     </div>
+
     <br />
 
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Volver al inicio</a></p>
-        <p>&copy;2015 Atomic Lab, todos los derechos reservados. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p><center>&copy;2015 Atomic Lab, todos los derechos reservados. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></center></p>
     </footer>
     <!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -320,5 +318,7 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="home.js"></script>
 </body>
+
 </html>
