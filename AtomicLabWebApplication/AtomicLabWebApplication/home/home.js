@@ -33,7 +33,7 @@ function initializeContactBox() {
 function scrollTo(item) {
     
     lastElementTop = $('#' + item).position().top;
-    scrollAmount = lastElementTop - 100;
+    scrollAmount = lastElementTop - 80;
     $('body').animate({ scrollTop: scrollAmount }, 800);
 }
 
