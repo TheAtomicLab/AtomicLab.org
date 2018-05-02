@@ -6754,4 +6754,10 @@ button.close {
     display: none !important;
   }
 }
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
