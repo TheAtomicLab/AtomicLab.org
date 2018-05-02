@@ -1,0 +1,27 @@
+button, .btn, a.btn{
+	cursor:pointer;
+	@include border-radius(3px);
+	color:white;
+	text-align:center;
+	font-size:17px;
+	font-weight:700;
+	font-family: 'Lato', sans-serif;
+	width:auto;
+	display:table;
+	background:$aqua-emerald;
+	width:90%;
+	margin:0 auto;
+	@include animated();
+	&:hover{
+		background:$aqua-emerald-hover;
+	}
+	&.btn-lg{
+		padding:15px 10px;
+	}
+	&.btn-md{
+		padding:12px 8px;
+	}
+	&.btn-sm{
+		padding:9px 6px;
+	}
+}

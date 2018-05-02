@@ -1,0 +1,245 @@
+.parallax-window {
+    min-height: 90vh;
+    width:100%;
+    background: transparent;
+    position: absolute;
+    top:0;
+    left:0;
+	object-fit: contain;
+  	opacity: 0.6;
+  	mix-blend-mode: hard-light;
+	background-image: -webkit-linear-gradient(30deg, #3499ff, #075ceb);
+	background-image: -o-linear-gradient(30deg, #3499ff, #075ceb);
+	background-image: linear-gradient(120deg, #3499ff, #075ceb);
+}
+.arrow{
+	@include centerer(true, true);
+	top:0;
+    margin-top: 5px;
+    cursor:pointer;
+}
+section{
+	&.cover{
+		height:90vh;
+		position:relative;
+		// &:before{
+		// 	content:'';
+		// 	width:100%;
+		// 	height:200px;
+		// 	position:absolute;
+		// 	left:0;
+		// 	bottom:0;
+		// 	background: linear-gradient(0deg, rgba(0,212,255,1) 0%, rgba(0,212,255,0) 100%);
+		// }
+		.main-copy{
+			@include centerer(true, true);
+			width:100%;
+			.logo{
+				width:90%;
+				max-width:900px;
+				margin:0 auto 10px auto;
+				img{
+					width:100%;
+				}
+			}
+			.tagline{
+				font-size:23px;
+				font-family: 'Lato', sans-serif;
+				color:white;
+				text-align:center;
+				line-height: 34px;
+				max-width:640px;
+				margin:0 auto;
+			}
+		}
+	}
+	&.mission{
+		.max-width-wrapper{
+			background:white;
+			padding:70px 50px 50px 50px;
+			position:relative;
+			-webkit-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+			-moz-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+			box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+		}
+		.compass{
+			position: absolute;
+			right: 0;
+			top: -200px;
+			@include opacity(0.6);
+		}
+		h2{
+			color:$blue-france;
+		}
+		p{
+			color:$black-night;
+		}
+		.map{
+			width: 360px;
+			float: right;
+		}
+	}
+	&.why{
+		.row{
+			display:table;
+			[class^="col-"]{
+				display: table-cell;
+			    vertical-align: middle;
+			    float: none;
+			}
+		}
+		.mano{
+			width:90%;
+		}
+		h2, p{
+			color:white;
+		}
+	}
+	&.what{
+		background:white;
+		padding:50px 20px;
+		-webkit-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+		-moz-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+		box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+		.show-mob{
+			display:none;
+		}
+		h3{
+			color:$blue-france;
+			text-align:center;
+			font-weight:500;
+			margin-bottom:30px;
+		}
+		.item-box{
+			border:1px solid $grey-light;
+			text-align:center;
+			padding:50px 20px 20px 20px;
+			.text{
+				font-weight:700;
+				font-family: 'Lato', sans-serif;
+				font-size:17px;
+				line-height:24px;
+				margin:20px 0;
+			}
+			img{
+				height:100px;
+				margin: 0 auto;
+			}
+		}
+	}
+	&.sponsors{
+		h3{
+			color:white;
+			text-align:center;
+			font-weight:500;
+			margin-bottom:30px;
+		}
+		img{
+			width:100%;
+		}
+		.row{
+			&:first-of-type{
+				margin-bottom:20px;
+			}
+		}
+	}
+}
+footer{
+	position:relative;
+	.info-block{
+		border-top:1px solid #4a90e2;
+		border-bottom:1px solid #4a90e2;
+		color:white;
+		text-align:center;
+		padding:60px 0 20px 0;
+		ul{
+			margin:25px 0 18px 0;
+			li{
+				display:inline-block;
+				vertical-align: middle;
+				cursor:pointer;
+				&:nth-child(2){
+					margin:0 20px;
+				}
+				img{
+					width:30px;
+				}
+			}
+		}
+		.contact-mail{
+			font-size:30px;
+		}
+		.intro{
+			font-size:17px;
+		}
+	}
+	.copyright{
+		color:white;
+		text-align:center;
+		padding:20px 0;
+	}
+}
+
+
+@media screen and (max-width: 1020px) {
+	section{
+		&.mission{
+			text-align:center;
+			padding:70px 20px 40px 20px;
+			.map{
+				display:none;
+			}
+		}
+		&.why{
+			text-align:center;
+			padding:40px 20px;
+			.pic-wrapper{
+				text-align:center;
+				margin-bottom: 40px;
+				img{
+					max-width:400px;
+				}
+			}
+			.row{
+				display:block;
+				[class^="col-"]{
+					display: block;
+				}
+			}
+		}
+		&.what{
+			overflow:hidden;
+			.margin-bottom-mob, {
+				margin-bottom:35px;
+			}
+		}
+		&.sponsors{
+			.hide-on-mobile{
+				display:none;
+			}
+			img{
+				max-width: 300px;
+			    margin: 15px auto 0 auto;
+			    display: table;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 767px) {
+	section{
+		&.what{
+			.show-mob{
+				display:block;
+			}
+			.full-width-mob{
+				overflow-x:scroll;
+				display:none;
+				.row{
+					width:1300px;
+				}
+			}
+		}
+	}
+}

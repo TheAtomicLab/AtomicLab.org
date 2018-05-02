@@ -1,0 +1,73 @@
+@media only screen and (max-width: 720px) {
+	.wrapper {
+		padding: 0px 20px;
+	}
+	#ini h1 {
+		font-size: 40px;
+	}
+	.dona_a {
+		padding: 16px;
+		margin: 10px 10px 0px 10px;
+	}
+	.icon_dona_a {
+		display: inline-block;
+		vertical-align: middle;
+		width: 65px;
+		height: 65px;
+		padding: 0px;
+		margin: 0px 20px 0px 0px;
+	}
+	.icon_dona_a img {
+		height: 50px;
+	}
+	.dona_a:hover .icon_dona_a img {
+		height: 50px;
+	}
+	.texto_dona_a {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: left;
+	}
+	#para_que h2 {
+		z-index: 10;
+		position: relative;
+		margin: 0px;
+		height: 280px;
+		color: white;
+		box-sizing: border-box;
+		margin-bottom: 30px;
+		padding: 65px 0px;
+	}
+	#foto_paraque img, #items ul, #foto_paraque {
+		display: block;
+		width: 100%;
+	}
+	#foto_paraque {
+		overflow: hidden;
+		height: 280px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 9;
+		width: 100%;
+		background: url(../img/foto01.jpg);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+	#foto_paraque:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+	}
+	#foto_paraque img {
+		top: 50%;
+		transform: translateY(-50%);
+		position: fixed;
+		opacity: 0.5;
+		display: none;
+	}
+}

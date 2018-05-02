@@ -1,0 +1,49 @@
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+	font-size:50px;
+}
+
+h2{
+	font-size:72px;
+	font-weight:500;
+	line-height: 76px;
+}
+
+h3{
+	font-size:46px;
+}
+
+h4{
+	font-size:30px;
+}
+
+h5{
+	font-size:26px;
+}
+
+h6{
+	font-family: 'Hind', sans-serif;
+	font-weight: 600;
+	font-size:19px;
+	&.sm{
+		font-size:15px;
+	}
+}
+
+p{
+	margin-top:25px;
+	font-size:16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	line-height: 30px;
+}
+
+@media screen and (max-width: 960px) {
+	h2{
+		font-size:50px;
+		line-height:58px;
+	}
+}

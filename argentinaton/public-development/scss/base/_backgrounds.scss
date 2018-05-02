@@ -1,0 +1,23 @@
+// Blue
+.bg-blue-france{
+	background:$blue-france;
+	&.btn:hover{
+		background: darken($blue-france, 8%);
+	}
+}
+
+// Black
+.bg-black-night{
+	background:$black-night;
+	&.btn:hover{
+		background: darken($black-night, 5%);
+	}
+}
+
+// Aqua
+.bg-aqua-emerald{
+	background:$aqua-emerald;
+	&.btn:hover{
+		background: darken($aqua-emerald, 5%);
+	}
+}

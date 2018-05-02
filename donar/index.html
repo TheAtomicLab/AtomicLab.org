@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36377554-9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-36377554-9');
+</script>
+
+	<title>Sé parte de Limbs</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo01.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo02.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo03.css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Trabajamos en equipo para crear soluciones que cambien la vida de millones de personas en el mundo mediante las últimas tecnologías.">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<script src="js/menu.js"></script>
+</head>
+<body>
+<header>
+	<a href="http://atomiclab.org/">
+		<img src="img/logo_atomic_blanco.svg" alt="logo atomic lab">
+	</a>
+</header>
+<article id="ini">
+	<h1>¿Les das una mano?</h1>
+	<p>Estamos muy contentos de anunciarles esta nueva metodología de donación que implementamos. Ahora podés donar el valor de una mano o un brazo para que podamos seguir con este proyecto, ayudando a personas que lo necesiten.
+	Podés hacerlo por transferencia bancaria, efectivo, tarjeta de débito o tarjeta de crédito (¡hasta 12 cuotas!).</p>
+</article>
+<article id="dona">
+	<ul>
+		<a onclick="donate(0)">
+			<li class="dona_a">
+				<div class="icon_dona_a">
+					<img src="img/icon_mano.svg" alt="donar una mano">
+				</div>
+				<div class="texto_dona_a">
+					<p class="dona_p">Doná</p>
+					<h3>El valor de una mano</h3>
+					<p>17(USD) / 300(ARS)</p>
+				</div>
+			</li>
+		</a>
+		<a onclick="donate(1)">
+			<li class="dona_a">
+				<div class="icon_dona_a">
+					<img src="img/icon_brazo.svg" alt="donar un brazo">
+				</div>
+				<div class="texto_dona_a">
+					<p class="dona_p">Doná</p>
+					<h3>El valor de un brazo</h3>
+					<p>25(USD) / 450(ARS)</p>
+				</div>
+			</li>
+		</a>
+	</ul>
+	<div id="otros_montos" class="">
+			<p>Otros montos</p>
+		<ul id="ot">
+			<a target="_blank" href="https://www.mercadopago.com/mla/debits/new?preapproval_plan_id=0ea4b227dc044f8f9d5ecdcd60aca56c">
+				<li>
+					<p>Donación mensual libre (Mercadopago)</p>
+				</li>
+			</a>
+			<a onclick="donate(3)">
+				<li>
+					<p>Donación libre (Paypal)</p>
+				</li>
+			</a>
+			<a target="_blank" href="https://blockchain.info/address/35WXjV589EHaKjEauZvghdZy8CJtnNX1Ah">
+				<li>
+					<p>Donación libre (Bitcoins)</p>
+				</li>
+			</a>
+		</ul>
+	</div>
+	<p id="aclaracion">*La donación no es la compra de una prótesis, al donar no se puede elegir el beneficiario de la misma.</p>
+</article>
+<div id="output">
+	<div id="out_fondo" onclick="cerrar_donate()"></div>
+	<article id="out">
+		<h2></h2>
+		<div id="dona_a">
+			<p>Seleccioná tu método de pago preferido</p>
+			<ul>
+				<a target="_blank" id="mpago" href=""><li>Mecadopago <span class="valorARS">()</span></li></a>
+				<a target="_blank" id="paypalUSD" href=""><li>Paypal <span class="valorUSD">()</span></li></a>
+				<a target="_blank" id="paypalARS" href=""><li>Paypal <span class="valorARS">()</span></li></a>
+				<a target="_blank" id="bitcoins" href="https://blockchain.info/address/35WXjV589EHaKjEauZvghdZy8CJtnNX1Ah"><li>Bitcoins</li></a>
+			</ul>
+		</div>
+		<div id="dona_b">
+			<p>¡Todo suma!</p>
+			<form target="_blank" action="https://www.paypal.com/paypalme/TheAtomicLab/send" method="get">
+			<input id="donacion_monto" type="number" name="amount" id="monto" min="0" placeholder="00" required>
+			<select name="currencyCode">
+				<option value="ARS">ARS</option>
+				<option value="USD">USD</option>
+			</select>
+				<input id="donacion_enviar" type="submit" value="Enviar"></input>
+			</form>
+		</div>
+		<div id="dona_c">
+			<p onclick="cerrar_donate()">Cerrar</p>
+		</div>
+	</article>
+</div>
+<img id="metodos_pago" src="img/metodos_pago.png" alt="metodos de pago">
+<article id="para_que" class="wrapper">
+	<h2 class="titulo">¿Para qué se utilizarán las donaciones?</h2>
+	<div id="items">
+		<div id="foto_paraque">
+			<img src="img/foto01.jpg" alt="niño usando la protesis">
+		</div>
+		<ul>
+			<li>Material plástico para imprimir las prótesis 3D</li>
+			<li>Velcro, tornillos, pegamento y otros.</li>
+			<li>Herramientas.</li>
+			<li>Mejorar en diseños y técnicas.</li>
+			<li>Comprar material para los Embajadores Atómicos de todo el mundo.</li>
+			<li>Insumos y materiales para los “Manotones”.</li>
+		</ul>
+	</div>
+</article>
+<article id="otras_formas" class="wrapper">
+	<h2 class="titulo">Otras formas de ayudar</h2>
+	<ul>
+		<li>Siendo voluntario. No se necesita ninguna habilidad especial. Solo ganas. ¿Te sumás? <a href="http://atomiclab.org/serparte" target="_blank">Sumarme</a></li>
+		<li>Unete a los Embajadores Atómicos, ellos están cambiando vidas, al rededor del mundo. <a href="http://atomiclab.org/embajadores" target="_blank">Ser un embajador atómico</a></li>
+		<li>O descargando e imprimiendo nuestro modelo de prótesis en: <a href="http://atomiclab.org/libre" target="_blank">www.AtomicLab.org/limbs/libre</a></li>
+	</ul>
+</article>
+<footer>
+	<p>©2017 Proyecto Limbs de Atomic Lab, todos los derechos reservados. Al navegar en este sitio aceptas nuestros términos y condiciones.</p>
+</footer>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36377554-9', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

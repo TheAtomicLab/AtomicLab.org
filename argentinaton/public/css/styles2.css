@@ -1,0 +1,225 @@
+.parallax-window {
+	background: none;
+	opacity: 1;
+}
+.parallax-window:before {
+  content: '';
+  background: linear-gradient(rgba(71, 114, 178, 0.5) 60%, rgba(71, 114, 178, 1));
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+section.cover .main-copy .logo {
+	max-width: 600px;
+}
+section.cover {
+	height: calc(100vh - 52px);
+}
+.f-blue {
+	color: #4772b2;
+	font-size: inherit;
+	font-weight: bold;
+}
+a, a:link, a:visited {
+	font-size: inherit;
+	text-decoration: underline;
+}
+button, .btn, a.btn {
+	background: #c6446b;
+	text-decoration: none;
+	font-size: 17px;
+	border: none;
+	border-radius: 3px;
+	font-weight: 700;
+}
+footer .info-block {
+	border-color: white;
+}
+button:hover, .btn:hover, a.btn:hover {
+    background: #4772b2;
+}
+body.full_pop_show {
+	overflow: hidden;
+}
+body.full_pop_show .full_view_pop {
+	display: block;
+}
+.full_view_pop {
+	display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  z-index: 2000;
+}
+.full_view_pop > div {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.full_view_bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 114, 178, 0.95);
+  top: 0px;
+  left: 0px;
+}
+.full_view_cont {
+  background-color: white;
+  webkit-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.3);
+  position: relative;
+	max-width: 800px;
+	width: 100%;
+	flex: 1;
+	padding: 50px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.full_view_close {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.full_view_close img {
+	position: absolute;
+	width: 50%;
+	opacity: 0.7;
+	transition: opacity 0.2s;
+}
+.full_view_close:hover img {
+	opacity: 1;
+}
+.full_view_output h3 {
+	margin-bottom: 20px;
+	color: #262626;
+}
+.form_argent input {
+  border: none;
+  box-shadow: 0px 1px 0px #ccc;
+  width: 100%;
+}
+.form_argent input:focus {
+	box-shadow: 0px 2px 0px #4772b2;
+}
+.form_argent .lbl-tinyltr {
+	font-size: 15px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.form_argent button {
+  border: none;
+  padding: 10px;
+  background: #4772b2;
+  margin: 0px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.donation_item {
+  margin: 40px auto;
+  text-align: center;
+  max-width: 290px;
+}
+.donation_item:last-child {
+margin-bottom: 0px;
+}
+.donations p.km {
+  font-size: 28px;
+  background: #4772b2;
+  color: white;
+  padding: 7px;
+  padding-bottom: 2px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.donations p {
+  margin: 0px;
+}
+.donations a {
+	text-decoration: none;
+}
+.donations .km span {
+  font-weight: 400;
+}
+.otros_montos .mont_item {
+	text-align: left;
+  background: white;
+  border: solid 1px #bfbfbf;
+	margin: 0px auto;
+  margin-bottom: 10px;
+  position: relative;
+	font-size: 15px;
+	max-width: 400px;
+}
+.otros_montos a {
+	display: block;
+	text-decoration: none;
+}
+.otros_montos a, .otros_montos .mont_item:first-child {
+	padding: 8px 7px;
+}
+.mont_item form {
+	display: flex;
+	flex-wrap: wrap;
+}
+.mont_item input[type=number], .mont_item select {
+	border: solid 1px #bfbfbf;
+	display: inline-block;
+	margin-top: 12px;
+	padding: 5px;
+	border-radius: 3px;
+	flex: 1
+}
+.mont_item input[type=number] {
+	flex-basis: 55%;
+	margin-right: 10px
+}
+.mont_item .btn {
+	width: 100%;
+	margin: 0px;
+	margin-top: 20px;
+}
+
+@media (max-width: 1020px){
+	section.cover {
+		height: calc(100vh - 122px);
+	}
+}
+@media screen and (max-width:500px){
+	.full_view_cont {
+		padding: 50px 20px;
+	}
+	.full_view_output h3 {
+		font-size: 30px;
+	}
+	section.cover {
+		height: calc(100vh - 124px);
+	}
+	section.mission .compass{
+		opacity: .2;
+	}
+	section.mission .max-width-wrapper {
+		padding: 60px 5px;
+	}
+	section.mission .max-width-wrapper h2 {
+		font-size: 35px;
+		line-height: 40px;
+	}
+}
