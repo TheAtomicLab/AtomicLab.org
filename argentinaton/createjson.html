@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Crear JSON</title>
+	</head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="public/js/xlsx.full.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<link rel="stylesheet" href="leaflet/leaflet-routing-machine.css">
+	<script src="leaflet/leaflet.js"></script>
+	<script src="leaflet/leaflet-routing-machine.js"></script>
+
+
+	<!-- Load Esri Leaflet from CDN -->
+	<script src="https://unpkg.com/esri-leaflet@2.2.1/dist/esri-leaflet.js" integrity="sha512-6BBVttv13OVrrUSoGmy9/aIVHateyIEGFaQxqnzCgXT9LNCAQ1Cxxj43R6Eq0ynydS7a7bLLfmEWwXFiO6lW2g==" crossorigin=""></script>
+
+
+	<!-- Load Esri Leaflet Geocoder from CDN -->
+	<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.css" integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ==" crossorigin="">
+	<script src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js" integrity="sha512-zdT4Pc2tIrc6uoYly2Wp8jh6EPEWaveqqD3sT0lf5yei19BC1WulGuh5CesB0ldBKZieKGD7Qyf/G0jdSe016A==" crossorigin=""></script>
+	<script src="public/js/moment.js" charset="utf-8"></script>
+
+	<body>
+		<script>
+		/* set up XMLHttpRequest */
+		var url = "public/datasetEntregas.xlsx";
+		var oReq = new XMLHttpRequest();
+		let jsonFinal = {};
+		var XLSdata;
+
+		oReq.open("GET", url, true);
+		oReq.responseType = "arraybuffer";
+
+		oReq.onload = function(e) {
+		  var arraybuffer = oReq.response;
+
+		  /* convert data to binary string */
+		  var data = new Uint8Array(arraybuffer);
+		  var arr = new Array();
+		  for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+		  var bstr = arr.join("");
+
+		  /* Call XLSX */
+		  var workbook = XLSX.read(bstr, {type:"binary"});
+
+		  /* DO SOMETHING WITH workbook HERE */
+		  var first_sheet_name = workbook.SheetNames[0];
+		  /* Get worksheet */
+		  var worksheet = workbook.Sheets[first_sheet_name];
+			XLSdata = XLSX.utils.sheet_to_json(worksheet,{raw:false})
+			console.log(data);
+		  createJsonData();
+		}
+		oReq.send();
+
+		let maxObj = 0;
+		function createJsonData(){
+			console.log(XLSdata);
+			maxObj = XLSdata.length;
+			processOne(0);
+		}
+		function processOne(k){
+			let obj = XLSdata[k];
+			L.esri.Geocoding.geocode().text(obj.lugar).run(function(err, results, response){
+				let resultado = results.results[0];
+
+				var geocodeService = L.esri.Geocoding.geocodeService();
+				geocodeService.reverse().latlng(resultado.latlng).run(function(error, resultGeo){
+					console.log(resultGeo);
+					jsonFinal[k] = {
+						type: obj.type,
+						cantidadEntragadas: 1,
+						date: moment(obj.fecha, 'MM/DD/YYYY').format('X'),
+						latLan: [resultado.latlng.lat, resultado.latlng.lng],
+						region: {
+							provincia: resultGeo.address.Region,
+							ciudad: resultGeo.address.Subregion,
+						},
+					};
+					if(resultGeo.address.City != ''){
+						jsonFinal[k].region.ciudad = resultGeo.address.City;
+					}
+					console.log('DONE '+k+' of '+(maxObj-1));
+					if(k+1 == maxObj){
+						echoJson();
+					} else {
+						processOne(k+1);
+					}
+				});
+			});
+		}
+		function echoJson(){
+			console.log('DONE');
+			console.log(jsonFinal);
+			$('body').append(JSON.stringify(jsonFinal));
+		}
+
+		</script>
+	</body>
+</html>

@@ -109,6 +109,7 @@
           backgroundPosition: this.position
         });
       }
+			this.$element.addClass('p-androidFix');
       return this;
     }
 
@@ -405,8 +406,8 @@
 
   // Parallax Data-API
 
-  $( function () { 
-    $('[data-parallax="scroll"]').parallax(); 
+  $( function () {
+    $('[data-parallax="scroll"]').parallax();
   });
 
 }(jQuery, window, document));

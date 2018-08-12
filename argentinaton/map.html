@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36377554-9"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Argentinatón | Atomic Lab</title>
+    <meta name="description" content="Recorriendo toda la Argentina regalando prótesis impresas en 3D." />
+    <meta name="keywords" content="manos mecánicas, manos 3D, prótesis, solidaridad, impresoras 3D, argentina, solidaridad, manos mecánicas 3D, Atomic Lab, Gino Tubaro" />
+
+    <meta property="og:url" content="http://AtomicLab.org/Argentinaton">
+    <meta property="og:title" content="#Argentinatón por Atomic Lab">
+    <meta property="og:description" content="Recorriendo toda la Argentina regalando prótesis 3D.">
+    <meta property="og:image" content="http://atomiclab.org/argentinaton/public/img/link.jpg">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:type" content="website">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="http://atomiclab.org/argentinaton/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://atomiclab.org/argentinaton/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://atomiclab.org/argentinaton/favicon-16x16.png">
+<link rel="manifest" href="http://atomiclab.org/argentinaton/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+	<!-- Style -->
+  	<link rel="stylesheet" href="public/css/styles.css">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<link rel="stylesheet" href="leaflet/leaflet-routing-machine.css">
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+	<script src="public/js/routing/dist/leaflet-routing-machine.js"></script>
+
+	<link rel="stylesheet" href="public/css/styles2.css">
+
+
+<!-- Load Esri Leaflet from CDN -->
+<script src="https://unpkg.com/esri-leaflet@2.2.1/dist/esri-leaflet.js"
+integrity="sha512-6BBVttv13OVrrUSoGmy9/aIVHateyIEGFaQxqnzCgXT9LNCAQ1Cxxj43R6Eq0ynydS7a7bLLfmEWwXFiO6lW2g=="
+crossorigin=""></script>
+
+
+<!-- Load Esri Leaflet Geocoder from CDN -->
+<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.css" integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ==" crossorigin="">
+<script src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js" integrity="sha512-zdT4Pc2tIrc6uoYly2Wp8jh6EPEWaveqqD3sT0lf5yei19BC1WulGuh5CesB0ldBKZieKGD7Qyf/G0jdSe016A==" crossorigin=""></script>
+<script src="public/js/moment.js" charset="utf-8"></script>
+<script src="public/js/jsonentregas.js" charset="utf-8"></script>
+
+
+</head>
+
+<body class="map">
+	<div class="menu" onclick="abrirmenu(true)">
+
+	</div>
+	<main>
+		<section class="sidebar">
+			<div class="header">
+				<div class="logo">
+	            	<img src="public/img/argentinaton-logo.svg" alt="">
+				</div>
+				<div class="snapshot">
+					<img src="public/img/pin.svg" alt="p">
+					<span class="cantidadCiudades"></span> Ciudades | 	<span class="cantidadManos"></span> prótesis
+				</div>
+			</div>
+			<div class="timeline">
+			</div>
+		</section>
+		<section class="map" id="mainMap">
+
+		</section>
+	</main>
+
+
+
+	<script type="text/javascript">
+		function abrirmenu(show){
+			if(show){
+				$('.sidebar').addClass('show-sidebar');
+				$('div.menu').addClass('show-sidebar');
+				$('div.menu').attr('onclick', 'abrirmenu(false)');
+			} else {
+				$('.sidebar').removeClass('show-sidebar');
+				$('div.menu').removeClass('show-sidebar');
+				$('div.menu').attr('onclick', 'abrirmenu(true)');
+			}
+		}
+		moment.locale('es');
+
+
+		let tokenMap = 'pk.eyJ1IjoibWF0aWFzZ2YiLCJhIjoiY2pnc205Mmo2MDJsdzMzbjI2dHVsZnNhYSJ9.GHBkK7xLQz1C6DYDmQqXTw';
+		let mapAtom = L.map('mainMap').setView([-35.3380676, -69.5867878],5);
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='+tokenMap, {
+			attribution: '',
+			maxZoom: 18,
+			id: 'mapbox.streets',
+			accessToken: tokenMap
+		}).addTo(mapAtom);
+
+		//icons
+		let iconoAtomico = L.icon({
+	    iconUrl: 'public/img/icons/geoAtomic.svg',
+			shadowUrl: 'public/img/icons/sombrageoAtomic.png',
+	    iconSize:     [64, 64],
+			shadowSize:   [64, 64],
+			iconAnchor:   [32, 64],
+	    shadowAnchor: [32, 64],
+		});
+
+		let ruta = L.Routing.control({
+	  	waypoints: [],
+	  	routeWhileDragging: false,
+			draggableWaypoints: false,
+			addWaypoints: false,
+			createMarker: false,
+			lineOptions: {
+				styles: [
+					{color: '#f27329', opacity: 1, weight: 4},
+				]
+			},
+	  	// geocoder: L.Control.Geocoder.nominatim()
+		});
+		let rutaFuture = L.Routing.control({
+	  	waypoints: [],
+	  	routeWhileDragging: false,
+			draggableWaypoints: false,
+			addWaypoints: false,
+			createMarker: false,
+			lineOptions: {
+				styles: [
+					{color: '#f27329', opacity: 1, weight: 4, dashArray: '4 1 2 1'},
+				]
+			},
+	  	// geocoder: L.Control.Geocoder.nominatim()
+		});
+		let nodosRuta = [];
+		let nodosRutaFuture = [];
+
+		//eventos
+		function iniEventos(){
+			var cantidadCiudades = 0;
+			var cantidadManos = 0;
+			var lastCiudad = '';
+			var nodosFuturo = '';
+			let firstDate = moment.unix(eventos[Object.keys(eventos)[0]].date);
+			let lastProvince = false;
+			$.each(eventos, function(k,o){
+				let fechaEvento = moment.unix(o.date);
+				if(fechaEvento.diff(moment()) < 0){
+					o.visited = true;
+				} else {
+					o.visited = false;
+				}
+				if(o.visited){
+					nodosRuta.push(L.latLng(o.latLan[0], o.latLan[1]));
+					if(o.type != 'point'){
+						eventos[k].obj = {};
+						eventos[k].obj = L.marker(o.latLan).addTo(mapAtom);
+						eventos[k].obj.id = k;
+						eventos[k].obj.on('click', markerclick);
+					}
+					if(lastCiudad != o.region.ciudad){
+						cantidadCiudades++;
+					}
+					lastCiudad = o.region.ciudad;
+				} else {
+					//not visited yet
+					nodosRutaFuture.push(L.latLng(o.latLan[0], o.latLan[1]));
+				}
+				if(o.type=='entrega'){
+					if(o.visited){
+						eventos[k].obj.setIcon(iconoAtomico);
+						cantidadManos += o.cantidadEntragadas;
+					}
+					if(lastProvince != o.region.provincia){
+						createStopProvince(o);
+					}
+					lastProvince = o.region.provincia;
+					createStopCity(k, o, firstDate);
+				}
+			});
+			$('.cantidadCiudades').html(cantidadCiudades);
+			$('.cantidadManos').html(cantidadManos);
+			console.log(nodosRutaFuture);
+			ruta.setWaypoints(nodosRuta);
+			ruta.addTo(mapAtom);
+			ruta.route();
+			var firstpolyline = new L.polyline(nodosRuta, {
+				color: 'red',
+				weight: 3,
+				opacity: 0.5,
+				smoothFactor: 1
+
+			});
+			// firstpolyline.addTo(mapAtom);
+		}
+
+		iniEventos();
+
+
+		function markerclick(e){
+			createPopup(eventos[this.id]);
+			console.log(this.id);
+		}
+		function createPopupFromId(id){
+			createPopup(eventos[id]);
+			abrirmenu(false);
+		}
+
+		function createStopCity(id, obj, firstDate){
+			let v_fecha = moment.unix(obj.date);
+			let v_dia = v_fecha.format('D');
+			let v_mes = v_fecha.format('MMM').toUpperCase();
+			let v_ciudad = obj.region.ciudad;
+			let v_diaViaje = 'Día '+v_fecha.endOf('day').diff(firstDate.startOf('day'), 'days');
+			let v_pending = '';
+			let v_onclick = '';
+			if(!obj.visited){
+				v_pending = ' pending';
+			} else {
+				v_onclick = ' onclick="createPopupFromId(\''+id+'\')"'
+			}
+			let html = '<div idEntrega="'+id+'" class="stop'+v_pending+'"><div class="date">'+v_dia+'<span>'+v_mes+'</span></div><div class="pin"></div><div class="location"'+v_onclick+'>'+v_ciudad+'<span class="distance">'+v_diaViaje+'</span></div></div>';
+			$('.timeline').append(html);
+		}
+		function createStopProvince(obj){
+			let v_pending = '';
+			if(!obj.visited){v_pending = ' pending';}
+			let v_provincia = obj.region.provincia;
+			let html = '<div class="province'+v_pending+'"><span>'+v_provincia+'</span></div>';
+			$('.timeline').append(html);
+		}
+
+		function createPopup(obj){
+			let html = '';
+
+			let v_provincia = obj.region.provincia;
+			let v_ciudad = obj.region.ciudad;
+			let v_type = obj.type;
+			let v_image = false;
+			let v_location = v_ciudad+', '+v_provincia;
+			let v_text = "";
+			// let v_fecha = new Date(obj.date*1000);
+			let v_fecha = moment.unix(obj.date);
+			//Asco pero para pasar rapido
+
+			if(obj.data != undefined )
+				{
+					if(obj.data.desc != undefined)
+					{
+						v_text = obj.data.desc;
+					}
+					if(obj.data.img != undefined){
+						v_image = 'background-image: url(public/img/gallery/'+obj.data.img+'); ';
+					}
+				};
+
+			let v_dia = v_fecha.format('D');
+			let v_mes = v_fecha.format('MMMM').toUpperCase();
+			let v_manosEntregadas = obj.cantidadEntragadas+(obj.cantidadEntragadas==1 ? ' mano entregada' : ' manos entregadas')
+
+			html = '<div class="widget"><div class="top-box" style="'+v_image+'"><div class="manoton-label">'+v_type+'</div></div><div class="bottom-box"><div class="location">'+v_location+'</div><p>'+v_text+'</p><div class="protesis"><img src="public/img/delivered-hand.svg" alt="h">'+v_manosEntregadas+'</div><div class="footer"><div class="date"> '+v_dia+'<span> '+v_mes+'</span></div></div></div></div>';//end main
+			$html = $(html);
+			if(!v_image){
+				$html.find('.top-box').css('display','none');
+			} else {
+				$html.find('.footer').append('<div class="more-pics">Ver Fotos</div>');
+			}
+			console.log(obj.latLan);
+
+			let pooop = L.popup()
+			.setLatLng(obj.latLan)
+			.setContent($html[0].outerHTML)
+			.openOn(mapAtom);
+		}
+
+	</script>
+</body>
+</html>

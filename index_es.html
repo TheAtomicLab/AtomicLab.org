@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <!-- ESPAÑOL -->
 <!-- Buscamos developers voluntarios, ¿te sumas? escribinos a nosotros@atomiclab.org ;) -->
@@ -65,7 +65,7 @@
 <style>
 @font-face {
     font-family: atomicfont;
-    src: url(fonts/atomic.woff);
+    src: url(fonts/atomic.ttf);
 }
 
 h1 {
@@ -84,6 +84,23 @@ h1 {
 </style>
 
 <body>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution="setup_tool"
+  page_id="606120862854556"
+  logged_in_greeting="¡Hola! ¿Cómo te puedo ayudar?"
+  logged_out_greeting="¡Hola! ¿Cómo te puedo ayudar?">
+</div>
 
     <!-- Navigation -->
     <!-- <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a> -->
@@ -192,7 +209,7 @@ h1 {
                                 <h4>
                                     <strong>Ser Embajador</strong>
                                 </h4>
-                                <p>Si tenés impresora 3D, sumate a nuestro progama de embajadores alrededor del mundo. Nosotros te mandamos los archivos (y te pagamos el material si lo necesitás); vos imprimís las manos y creás sonrisas.</p>
+                                <p>¿Tenés impresora 3D? Podés ser un embajador en cualquier parte del mundo. Nosotros te mandamos los archivos y te pagamos el material si lo necesitás; vos imprimís las prótesis y creás sonrisas. <a href="http://atomiclab.org/embajadores" style=color:black target="_blank"> Más información del programa.<a></p>
                                 <a href="http://atomiclab.org/limbs/ambassador/es" class="btn btn-light" target="_blank">Ser embajador</a>
                             </div>
                         </div>
