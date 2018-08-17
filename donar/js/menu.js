@@ -43,8 +43,8 @@ function donate(x) {
 		$("#dona_a").css('display', 'block');
 		$('#dona_a .valorUSD').text(usd+'(USD)');
 		$('#dona_a .valorARS').text(ars+'(ARS)');
-		$('#paypalUSD').attr('href', 'https://www.paypal.com/paypalme/TheAtomicLab/send?amount='+usd+'&currencyCode=USD');
-		$('#paypalARS').attr('href', 'https://www.paypal.com/paypalme/TheAtomicLab/send?amount='+ars+'&currencyCode=ARS');
+		$('#paypalUSD').attr('href', 'https://www.paypal.com/myaccount/transfer/send/external/ppme?amount='+usd+'&currencyCode=USD&profile=TheAtomicLab');
+		// $('#paypalARS').attr('href', 'https://www.paypal.com/myaccount/transfer/send/external/ppme?amount='+ars+'&currencyCode=ARS&profile=TheAtomicLab');
 		$('#mpago').attr('href', mpago);
 	} else {
 		$("#dona_b").css('display', 'block');

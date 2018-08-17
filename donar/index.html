@@ -108,16 +108,17 @@
 			<ul>
 				<a target="_blank" id="mpago" href=""><li>Mecadopago <span class="valorARS">()</span></li></a>
 				<a target="_blank" id="paypalUSD" href=""><li>Paypal <span class="valorUSD">()</span></li></a>
-				<a target="_blank" id="paypalARS" href=""><li>Paypal <span class="valorARS">()</span></li></a>
+				<!-- <a target="_blank" id="paypalARS" href=""><li>Paypal <span class="valorARS">()</span></li></a> -->
 				<a target="_blank" id="bitcoins" href="https://blockchain.info/address/35WXjV589EHaKjEauZvghdZy8CJtnNX1Ah"><li>Bitcoins</li></a>
 			</ul>
 		</div>
 		<div id="dona_b">
 			<p>¡Todo suma!</p>
-			<form target="_blank" action="https://www.paypal.com/paypalme/TheAtomicLab/send" method="get">
+			<form target="_blank" action="https://www.paypal.com/myaccount/transfer/send/external/ppme" method="get">
 			<input id="donacion_monto" type="number" name="amount" id="monto" min="0" placeholder="00" required>
+			<input type="hidden" name="profile" value="TheAtomicLab" />
 			<select name="currencyCode">
-				<option value="ARS">ARS</option>
+				<!-- <option value="ARS">ARS</option> -->
 				<option value="USD">USD</option>
 			</select>
 				<input id="donacion_enviar" type="submit" value="Enviar"></input>
