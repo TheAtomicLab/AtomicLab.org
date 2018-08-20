@@ -78,8 +78,19 @@
 							ciudad: resultGeo.address.Subregion,
 						},
 					};
+					if('cantidad' in obj){
+						jsonFinal[k].cantidadEntragadas = parseInt(obj.cantidad);
+					}
 					if(resultGeo.address.City != ''){
 						jsonFinal[k].region.ciudad = resultGeo.address.City;
+					}
+					if('fotos' in obj){
+						console.log(obj.fotos);
+						if(!('data' in jsonFinal[k])){
+							jsonFinal[k]['data'] = {};
+						}
+						console.log(jsonFinal[k]);
+						jsonFinal[k].data.img = encodeURI(obj.fotos);
 					}
 					console.log('DONE '+k+' of '+(maxObj-1));
 					if(k+1 == maxObj){

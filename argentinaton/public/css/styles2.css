@@ -331,6 +331,27 @@ body.map .sidebar .timeline .stop.pending .location {
 body.map .menu {
 	display: none;
 }
+body.map .sidebar .timeline .stop {
+	padding-left: 61px;
+  padding-right: 12px;
+}
+body.map .sidebar .timeline .stop .date {
+	position: absolute;
+	left: 0px;
+}
+body.map .sidebar .timeline .stop .pin {
+	position: absolute;
+  left: 28px;
+}
+body.map .sidebar .timeline .stop .location.hascontent {
+	width: 100%;
+}
+body.map .sidebar .timeline .stop .previewImg {
+	width: 100%;
+	padding-top: 56%;
+	background-size: cover;
+	margin-top: 5px;
+}
 @media (min-width: 900px){
 	*::-webkit-scrollbar {
 	    width: 6px !important;
@@ -371,10 +392,10 @@ body.map .menu {
 		transform: translateY(calc(-50% - 8px));
 	}
 	body.map .menu.show-sidebar:after {
-		transform: rotate(45deg) translateY(-50%);
+		transform: rotate(45deg) translateY(-50%) translateX(-2.5px);
 	}
 	body.map .menu.show-sidebar:before {
-		transform: rotate(-45deg) translateY(-50%);
+		transform: rotate(-45deg) translateY(-50%) translateX(2.5px);
 	}
 	body.map .sidebar:not(.show-sidebar) {
 		display: none;
