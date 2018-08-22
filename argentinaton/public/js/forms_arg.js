@@ -152,10 +152,9 @@ let form_donaciones = `
 				Donación Libre (Paypal)
 				<div class="out_libre_pago">
 					<div>
-						<form target="_blank" action="https://www.paypal.com/paypalme/TheAtomicLab/send" method="get">
+						<form target="_blank" action="https://www.paypal.com/myaccount/transfer/send/external/ppme" method="get">
 							<input id="donacion_monto" type="number" name="amount" min="0" placeholder="00" required>
 							<select name="currencyCode">
-								<option value="ARS">ARS</option>
 								<option value="USD">USD</option>
 							</select>
 							<input type="submit" value="Continuar" class="btn btn-sm">

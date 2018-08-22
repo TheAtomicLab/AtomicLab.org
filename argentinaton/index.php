@@ -1,4 +1,17 @@
 <?php include_once('include/header.php'); ?>
+	<div class="verrec">
+		<div class="helper">
+			<p>¡Seguí el recorrido del argentinatón!</p>
+		</div>
+		<a class="chipVerMapa" href="map.html">
+			<div class="chipIcon">
+				<img src="public/img/icons/geoAtomicCuadradoBlanco.svg" alt="">
+			</div>
+			<div class="chipLabel">
+				<p>Ver mapa</p>
+			</div>
+		</a>
+	</div>
   <div class="full_view_pop">
     <div>
 			<div class="full_view_bg" onclick="close_full_popup()"></div>
