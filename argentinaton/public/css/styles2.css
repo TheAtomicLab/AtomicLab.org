@@ -301,7 +301,7 @@ margin-bottom: 0px;
 	position: absolute;
 	top: 60px;
 	width: 290px;
-	animation: iniHelper 0.4s ease 5s, outHelper 0.4s ease 20s;
+	animation: iniHelper 0.4s ease 1.5s, outHelper 0.4s ease 20s;
 	animation-fill-mode: forwards;
 	transform: scale(0);
 	transform-origin: 25px -10px;
@@ -360,10 +360,20 @@ margin-bottom: 0px;
 	color: white;
 	padding-left: 7px;
   padding-right: 4px;
+	margin: 0px;
 }
 
 
 /*map*/
+.leaflet-control-attribution.leaflet-control {
+	display: none;
+}
+.verproyecto {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 2
+}
 body.map {
 	overflow: hidden;
 }
@@ -395,7 +405,7 @@ body.map .widget .bottom-box p {
 	background: none;
 }
 body.map .sidebar {
-	z-index: 2;
+	z-index: 3;
 	position: relative;
 }
 section.map {
@@ -419,6 +429,16 @@ body.map .sidebar .timeline .stop.pending .location {
 }
 body.map .menu {
 	display: none;
+}
+body.map section.map {
+	margin-left: 350px;
+	width: calc(100% - 350px);
+}
+body.map .sidebar {
+	width: 350px;
+}
+body.map .sidebar .header {
+	width: 350px;
 }
 body.map .sidebar .timeline .stop {
 	padding-left: 61px;
@@ -463,6 +483,10 @@ body.map .sidebar .timeline .stop .previewImg {
 		right: 10px;
 		top: 10px;
 		cursor: pointer;
+	}
+	body.map section.map {
+		margin-left: 0px;
+		width: 100%;
 	}
 	body.map .menu:before, body.map .menu:after {
 		content: '';
