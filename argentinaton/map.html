@@ -129,43 +129,41 @@ crossorigin=""></script>
 	    shadowAnchor: [32, 64],
 		});
 
-		let ruta = L.Routing.control({
-	  	waypoints: [],
-	  	routeWhileDragging: false,
+		let nodosRuta = [];
+		let nodosRutaFuture = [];
+
+		var rutaFuture = new L.Routing.control({
+			routeWhileDragging: false,
 			draggableWaypoints: false,
 			addWaypoints: false,
-			createMarker: false,
+			createMarker: function() { return null; },
+			lineOptions: {
+				styles: [
+					{color: '#f27329', opacity: 1, weight: 4, dashArray: '4 12'},
+				]
+			},
+		});
+		var ruta = new L.Routing.control({//ruta
+			routeWhileDragging: false,
+			draggableWaypoints: false,
+			addWaypoints: false,
+			createMarker: function() { return null; },
 			lineOptions: {
 				styles: [
 					{color: '#f27329', opacity: 1, weight: 4},
 				]
 			},
-	  	// geocoder: L.Control.Geocoder.nominatim()
 		});
-		let rutaFuture = L.Routing.control({
-	  	waypoints: [],
-	  	routeWhileDragging: false,
-			draggableWaypoints: false,
-			addWaypoints: false,
-			createMarker: false,
-			lineOptions: {
-				styles: [
-					{color: '#f27329', opacity: 1, weight: 4, dashArray: '4 1 2 1'},
-				]
-			},
-	  	// geocoder: L.Control.Geocoder.nominatim()
-		});
-		let nodosRuta = [];
-		let nodosRutaFuture = [];
 
 		//eventos
 		function iniEventos(){
 			var cantidadCiudades = 0;
 			var cantidadManos = 0;
 			var lastCiudad = '';
-			var nodosFuturo = '';
+			var isrutafuture = false;
 			let firstDate = moment.unix(eventos[Object.keys(eventos)[0]].date);
 			let lastProvince = false;
+			var lastKey = false;
 			$.each(eventos, function(k,o){
 				let fechaEvento = moment.unix(o.date);
 				if(fechaEvento.diff(moment()) < 0){
@@ -174,6 +172,7 @@ crossorigin=""></script>
 					o.visited = false;
 				}
 				if(o.visited){
+					lastKey = k;
 					nodosRuta.push(L.latLng(o.latLan[0], o.latLan[1]));
 					if(o.type != 'point'){
 						eventos[k].obj = {};
@@ -187,6 +186,11 @@ crossorigin=""></script>
 					lastCiudad = o.region.ciudad;
 				} else {
 					//not visited yet
+					if(!isrutafuture){ //fist unvisited
+						var oLast = eventos[lastKey];
+						nodosRutaFuture.push(L.latLng(oLast.latLan[0], oLast.latLan[1]));
+					}
+					isrutafuture = true;
 					nodosRutaFuture.push(L.latLng(o.latLan[0], o.latLan[1]));
 				}
 				if(o.type=='entrega'){
@@ -203,10 +207,16 @@ crossorigin=""></script>
 			});
 			$('.cantidadCiudades').html(cantidadCiudades);
 			$('.cantidadManos').html(cantidadManos);
-			console.log(nodosRutaFuture);
+
 			ruta.setWaypoints(nodosRuta);
 			ruta.addTo(mapAtom);
-			ruta.route();
+			ruta.hide(mapAtom);
+			if(isrutafuture){
+				rutaFuture.setWaypoints(nodosRutaFuture);
+				rutaFuture.addTo(mapAtom);
+				rutaFuture.hide(mapAtom);
+			}
+			// var line = L.Routing.line(ruta).addTo(mapAtom);
 			var firstpolyline = new L.polyline(nodosRuta, {
 				color: 'red',
 				weight: 3,
