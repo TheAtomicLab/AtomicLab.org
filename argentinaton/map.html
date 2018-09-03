@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
 
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36377554-9"></script>
@@ -43,11 +43,17 @@
 	<link rel="stylesheet" href="public/css/styles2.css">
 
 
-<!-- Load Esri Leaflet from CDN -->
-<script src="https://unpkg.com/esri-leaflet@2.2.1/dist/esri-leaflet.js"
-integrity="sha512-6BBVttv13OVrrUSoGmy9/aIVHateyIEGFaQxqnzCgXT9LNCAQ1Cxxj43R6Eq0ynydS7a7bLLfmEWwXFiO6lW2g=="
-crossorigin=""></script>
+	<!-- Load Esri Leaflet from CDN -->
+	<script src="https://unpkg.com/esri-leaflet@2.2.1/dist/esri-leaflet.js"
+	integrity="sha512-6BBVttv13OVrrUSoGmy9/aIVHateyIEGFaQxqnzCgXT9LNCAQ1Cxxj43R6Eq0ynydS7a7bLLfmEWwXFiO6lW2g=="
+	crossorigin=""></script>
 
+<!-- MAPBOX GL JS -->
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.14.3/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.14.3/mapbox-gl.js'></script>
+
+<!-- Leaflet and mapbox GL integration NOTE: recemos que funcione -->
+<script src="//rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
 
 <!-- Load Esri Leaflet Geocoder from CDN -->
 <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.css" integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ==" crossorigin="">
@@ -109,15 +115,20 @@ crossorigin=""></script>
 		}
 		moment.locale('es');
 
-
-		let tokenMap = 'pk.eyJ1IjoibWF0aWFzZ2YiLCJhIjoiY2pnc205Mmo2MDJsdzMzbjI2dHVsZnNhYSJ9.GHBkK7xLQz1C6DYDmQqXTw';
 		let mapAtom = L.map('mainMap').setView([-35.3380676, -69.5867878],5);
-		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='+tokenMap, {
-			attribution: '',
-			maxZoom: 18,
-			id: 'mapbox.streets',
-			accessToken: tokenMap
-		}).addTo(mapAtom);
+		// L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='+tokenMap, {
+		// 	attribution: '',
+		// 	maxZoom: 18,
+		// 	id: 'mapbox.streets',
+		// 	accessToken: tokenMap
+		// }).addTo(mapAtom);
+
+		let token = 'pk.eyJ1IjoibWF0aWFzZ2YiLCJhIjoiY2pnc205Mmo2MDJsdzMzbjI2dHVsZnNhYSJ9.GHBkK7xLQz1C6DYDmQqXTw';
+		L.tileLayer('https://api.mapbox.com/styles/v1/matiasgf/cjllfnq6u4bpa2slodaj13yjd/tiles/{z}/{x}/{y}?access_token=' + token, {
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution: ''
+    }).addTo(mapAtom);
 
 		//icons
 		let iconoAtomico = L.icon({
@@ -228,7 +239,7 @@ crossorigin=""></script>
 		}
 
 		iniEventos();
-
+		
 
 		function markerclick(e){
 			createPopup(eventos[this.id]);

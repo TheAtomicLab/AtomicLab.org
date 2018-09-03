@@ -60,8 +60,10 @@
 			maxObj = XLSdata.length;
 			processOne(0);
 		}
+		var doneCounter = 0;
 		function processOne(k){
 			let obj = XLSdata[k];
+			jsonFinal[k] = {};
 			L.esri.Geocoding.geocode().text(obj.lugar).run(function(err, results, response){
 				let resultado = results.results[0];
 
@@ -92,14 +94,16 @@
 						console.log(jsonFinal[k]);
 						jsonFinal[k].data.img = encodeURI(obj.fotos);
 					}
-					console.log('DONE '+k+' of '+(maxObj-1));
-					if(k+1 == maxObj){
+					console.log('DONE '+doneCounter+' of '+(maxObj-1));
+					if(doneCounter+1 == maxObj){
 						echoJson();
-					} else {
-						processOne(k+1);
 					}
+					doneCounter = doneCounter+1;
 				});
 			});
+			if(k+1 != maxObj){
+				processOne(k+1);
+			}
 		}
 		function echoJson(){
 			console.log('DONE');
