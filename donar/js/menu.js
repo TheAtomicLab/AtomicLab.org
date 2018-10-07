@@ -23,14 +23,14 @@ function donate(x) {
 	//modificar estos valores para modificar los montos
 	switch(x) {
 		case 0:
-			titulo = 'Donar una mano';
-			ars = 300;
+			titulo = 'Costo de una mano';
+			ars = 650;
 			usd = 17;
 			mpago = 'https://www.mercadopago.com/mla/checkout/start?pref_id=250863338-14def56b-ae43-456c-95d6-cb95f9f667ec';
 			break;
 		case 1:
-			titulo = 'Donar un brazo';
-			ars = 450;
+			titulo = 'Costo de un brazo';
+			ars = 950;
 			usd = 25;
 			mpago = 'https://www.mercadopago.com/mla/checkout/start?pref_id=250863338-36b6a4d7-923c-4f28-9780-8f6bc1ed2253';
 			break;
