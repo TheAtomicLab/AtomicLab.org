@@ -131,13 +131,16 @@
     }).addTo(mapAtom);
 
 		//icons
+		let iconSize = 40;
+		let iconHalf = iconSize/2;
 		let iconoAtomico = L.icon({
 	    iconUrl: 'public/img/icons/geoAtomic.svg',
 			shadowUrl: 'public/img/icons/sombrageoAtomic.png',
-	    iconSize:     [64, 64],
-			shadowSize:   [64, 64],
-			iconAnchor:   [32, 64],
-	    shadowAnchor: [32, 64],
+			// iconSize:     [64, 64],
+	    iconSize:     [iconSize, iconSize],
+			shadowSize:   [iconSize, iconSize],
+			iconAnchor:   [iconHalf, iconSize],
+	    shadowAnchor: [iconHalf, iconSize],
 		});
 
 		let nodosRuta = [];
@@ -239,7 +242,7 @@
 		}
 
 		iniEventos();
-		
+
 
 		function markerclick(e){
 			createPopup(eventos[this.id]);
