@@ -168,6 +168,7 @@
 				]
 			},
 		});
+		var rutas = [];
 
 		//eventos
 		function iniEventos(){
@@ -222,9 +223,34 @@
 			$('.cantidadCiudades').html(cantidadCiudades);
 			$('.cantidadManos').html(cantidadManos);
 
-			ruta.setWaypoints(nodosRuta);
-			ruta.addTo(mapAtom);
-			ruta.hide(mapAtom);
+			var nodosConjuntos = chunkArray(nodosRuta, 40);
+			var ultimoNodo = false;
+			$.each(nodosConjuntos, function(k,o){
+				if(ultimoNodo){
+					nodosConjuntos[k].unshift(ultimoNodo);
+				}
+				ultimoNodo = o[o.length-1];
+			});
+			$.each(nodosConjuntos, function(k,o){
+				var tramoRuta = new L.Routing.control({//ruta tramo
+					routeWhileDragging: false,
+					draggableWaypoints: false,
+					addWaypoints: false,
+					createMarker: function() { return null; },
+					lineOptions: {
+						styles: [
+							{color: '#f27329', opacity: 1, weight: 4},
+						]
+					},
+				});
+				tramoRuta.setWaypoints(o);
+				tramoRuta.addTo(mapAtom);
+				tramoRuta.hide(mapAtom);
+			});
+
+			// ruta.setWaypoints(nodosRuta);
+			// ruta.addTo(mapAtom);
+			// ruta.hide(mapAtom);
 			if(isrutafuture){
 				rutaFuture.setWaypoints(nodosRutaFuture);
 				rutaFuture.addTo(mapAtom);
@@ -242,6 +268,19 @@
 		}
 
 		iniEventos();
+		function chunkArray(myArray, chunk_size){
+		    var index = 0;
+		    var arrayLength = myArray.length;
+		    var tempArray = [];
+
+		    for (index = 0; index < arrayLength; index += chunk_size) {
+		        myChunk = myArray.slice(index, index+chunk_size);
+		        // Do something if you want with the group
+		        tempArray.push(myChunk);
+		    }
+
+		    return tempArray;
+		}
 
 
 		function markerclick(e){
@@ -309,7 +348,7 @@
 
 			let v_dia = v_fecha.format('D');
 			let v_mes = v_fecha.format('MMMM').toUpperCase();
-			let v_manosEntregadas = obj.cantidadEntragadas+(obj.cantidadEntragadas==1 ? ' mano entregada' : ' manos entregadas')
+			let v_manosEntregadas = obj.cantidadEntragadas+(obj.cantidadEntragadas==1 ? ' mano entregada' : ' manos entregadas');
 			// <div class="manoton-label">'+v_type+'</div> LABEL OPCIONAL
 			html = '<div class="widget"><div class="top-box" style="'+v_image+'"></div><div class="bottom-box"><div class="location">'+v_location+'</div><p>'+v_text+'</p><div class="protesis"><img src="public/img/delivered-hand.svg" alt="h">'+v_manosEntregadas+'</div><div class="footer"><div class="date"> '+v_dia+'<span> '+v_mes+'</span></div></div></div></div>';//end main
 			$html = $(html);
