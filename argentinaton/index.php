@@ -241,6 +241,10 @@
 			            			<img src="public/img/123logo.svg?1" alt="company">
 			            		</a>
 			            	</div>
+										<div class="col-md-2">
+			            		<a href="https://hogares.telecom.com.ar/" target="_blank">
+			            			<img src="public/img/telecomlogo.svg?1" alt="company">
+			            		</a>
 			            	</div>
 		                </article>
 		            </section>
